@@ -47,3 +47,6 @@ npm run svgo
 4. 本项目使用了`svg-sprite-loader`处理svg图标, 请确保你已经了解了`svg-sprite-loader`的基本使用
 5. 本项目使用了`node`进行文件操作, 请确保你已经安装了`node`
 6. 本项目使用了`uTools API`进行开发, 请确保你已经安装了`uTools`,并且使用了`uTools开发者工具`下进行开发
+
+## 相关链接
+- [uTools开发文档](https://u.tools/docs/developer)
