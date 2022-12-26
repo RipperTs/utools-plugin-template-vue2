@@ -1,0 +1,34 @@
+{
+  "name": "template",
+  "pluginName": "vue2插件模板",
+  "description": "vue2插件模板",
+  "version": "1.0.0",
+  "main": "dist/index.html",
+  "preload": "dist/preload.js",
+  "author": "ripper",
+  "homepage": "https://github.com/ripperts",
+  "logo": "dist/logo.png",
+  "platform": [
+    "win32",
+    "darwin",
+    "linux"
+  ],
+  "development": {
+    "main": "http://127.0.0.1:4100",
+    "preload": "../public/preload.js"
+  },
+  "pluginSetting": {
+    "single": false
+  },
+  "features": [
+    {
+      "code": "template",
+      "explain": "插件开发模板",
+      "cmds": [
+        "模板",
+        "template"
+      ],
+      "icon": "dist/logo.png"
+    }
+  ]
+}
