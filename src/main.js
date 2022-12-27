@@ -2,7 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import axios from 'axios'
 import 'mavon-editor/dist/css/index.css'
-import {utools} from "./utils/utools.js";
+import {UTools} from "./utils/utools.js";
 import Vant from "./vant.js";
 import router from './router';
 import store from './store/index'
@@ -13,7 +13,7 @@ import './assets/icons' // icon
 import dayjs from 'dayjs'
 
 if (process.env.NODE_ENV !== "production") {
-  window.utools = window.utools || utools;
+  window.utools = window.utools || UTools;
 }
 
 Vue.config.productionTip = false;

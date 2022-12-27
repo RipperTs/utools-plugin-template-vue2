@@ -2,7 +2,7 @@
 
 ## 介绍
 基于vue2封装的uTools插件开发模板, 用于快速开发uTools插件  
-本项目已全局引用element ui组件库, 以及axios, dayjs, moment等常用库, 无需再次引用
+本项目已全局引用element ui组件库, 以及axios, dayjs, lodash等常用库, 无需再次引用
 
 ## 使用
 1. 克隆项目
@@ -40,6 +40,13 @@ npm run svgo
 - 运行`npm run build`命令,来生成打包后的文件目录
 - 在uTools开发者工具中点击`开始运行`按钮,即可在uTools中使用
 
+## preload.js开发注意
+- [preload.js官方文档说明](https://u.tools/docs/developer/preload.html)
+- 如果需要使用`node`模块,请在`preload.js`中引入,并在`package.json`中声明
+- 如果需要使用`electron`模块,请在`preload.js`中引入,并在`package.json`中声明
+- 注意,每次更改`preload.js`后,都需要重新运行`npm run build`命令,才能在`uTools开发者工具`中生效
+- 或者,直接替换`data/dist`目录中的`preload.js`文件,也能生效
+
 ## 特别说明
 1. 本项目使用了`vue-cli`脚手架, 请确保你已经安装了`vue-cli`
 2. 本项目使用了`vue-router`路由, 请确保你已经了解了`vue-router`的基本使用
@@ -50,3 +57,6 @@ npm run svgo
 
 ## 相关链接
 - [uTools开发文档](https://u.tools/docs/developer)
+- [Lodash组件库](https://www.lodashjs.com/)
+- [Element UI](https://element.eleme.cn/#/zh-CN/component/installation)
+- [DayJs](https://dayjs.gitee.io/zh-CN/)
