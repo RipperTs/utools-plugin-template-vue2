@@ -1,4 +1,4 @@
-# uTools插件模板 (vue2)
+# uTools插件模板
 
 ## 介绍
 基于vue2封装的uTools插件开发模板, 用于快速开发uTools插件  
