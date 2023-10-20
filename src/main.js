@@ -2,7 +2,6 @@ import Vue from "vue";
 import App from "./App.vue";
 import axios from 'axios'
 import 'mavon-editor/dist/css/index.css'
-import {UTools} from "./utils/utools.js";
 import Vant from "./vant.js";
 import router from './router';
 import store from './store/index'
@@ -11,10 +10,6 @@ import 'element-ui/lib/theme-chalk/index.css';
 import './style.css';
 import './assets/icons' // icon
 import dayjs from 'dayjs'
-
-if (process.env.NODE_ENV !== "production") {
-  window.utools = window.utools || UTools;
-}
 
 Vue.config.productionTip = false;
 
@@ -26,23 +21,26 @@ Vue.use(ElementUI, {size: 'small'});
 Vue.prototype.utools = window.utools;
 Vue.prototype.$dayjs = dayjs;
 
-window.utools.onPluginEnter(({code, type, payload}) => {
+if (window.utools) {
+  window.utools.onPluginEnter(({code, type, payload}) => {
 
-  console.log('用户进入插件应用', `code:${code}`, `type:${type}`, `关键字:${payload}`)
+    console.log('用户进入插件应用', `code:${code}`, `type:${type}`, `关键字:${payload}`)
 
-  Vue.prototype.$pluginCode = code
-  Vue.prototype.$pluginType = type
-  Vue.prototype.$pluginPayload = payload
+    Vue.prototype.$pluginCode = code
+    Vue.prototype.$pluginType = type
+    Vue.prototype.$pluginPayload = payload
 
-  new Vue({
-    router,
-    store,
-    render: (h) => h(App),
-  }).$mount('#app');
+  });
 
-});
+  window.utools.onPluginDetach(() => {
+    console.log('分离插件')
+    Vue.prototype.$pluginDetach = true
+  })
+}
 
-window.utools.onPluginDetach(() => {
-  console.log('分离插件')
-  Vue.prototype.$pluginDetach = true
-})
+
+new Vue({
+  router,
+  store,
+  render: (h) => h(App),
+}).$mount('#app');
